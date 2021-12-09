@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 public class AddNode_PopUp extends JFrame implements ActionListener {
     JButton button;
     JTextField textField;
+    JTextField bro;
     public static void main(String[] args) {
 
     }
