@@ -1,8 +1,8 @@
-import api.*;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import api.api.*;
 
 import javax.swing.*;
 import java.io.File;
