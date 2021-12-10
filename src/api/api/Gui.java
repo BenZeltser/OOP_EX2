@@ -75,12 +75,12 @@ public class Gui {
         ShortestPathButton.setFont(new Font("Comic Sans", Font.BOLD, 15));
         ShortestPathButton.addActionListener(e -> new PopUpWindow("Shortest Path is: "));
 
-        JButton b6 = new JButton();
-        b6.setBounds(0, 500, 350, 25);
-        b6.setBackground(Color.green);
-        b6.setText("(ADD)Tsp Algorithm");
-        b6.setFont(new Font("Comic Sans", Font.BOLD, 15));
-        b6.addActionListener(e -> out.println("b6"));
+        JButton tspButton = new JButton();
+        tspButton.setBounds(0, 500, 350, 25);
+        tspButton.setBackground(Color.green);
+        tspButton.setText("(ADD)Tsp Algorithm");
+        tspButton.setFont(new Font("Comic Sans", Font.BOLD, 15));
+        tspButton.addActionListener(e -> out.println("tspButton"));
 
 
         JFrame frame = new JFrame();
@@ -94,7 +94,7 @@ public class Gui {
         frame.add(AddNodeButton);
         frame.add(AddEdgeButton);
         frame.add(ShortestPathButton);
-        frame.add(b6);
+        frame.add(tspButton);
         frame.add(iconLabel);
         frame.add(select_label);
         frame.revalidate();
