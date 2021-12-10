@@ -22,5 +22,5 @@
 
 ## Program Classes and Interfaces 
 
-Within this Section, a Plan for the different Classes, And how they interact, is described using a UML file:
+Within this Section, a Plan for the different Classes, And how they interact, is described using a UML Diagram:
 
