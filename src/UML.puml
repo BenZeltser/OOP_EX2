@@ -4,7 +4,7 @@
 
 interface GUI {
 ~build()
-}
+    }
 interface NodeData {
     ~Constructor()
     -int getKey()
@@ -16,7 +16,7 @@ interface NodeData {
     -void setInfo(String s)
     -int getTag()
     -void setTag(int t)
-}
+    }
 interface EdgeData {
     ~Constructor()
     -int getSrc()
@@ -26,9 +26,10 @@ interface EdgeData {
     -void setInfo(String s)
     -int getTag()
     -void setTag(int t)
+    }
+interface DirectedWeightedGraph {
 
-}
-interface DirectedWeightedGraph {}
+    }
 interface DirectedWeightedGraphAlgorithms {}
 interface GeoLocation {}
 
