@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/src/api/api/DWGTest.java" charset="windows-1255" />
-    <file url="file://$PROJECT_DIR$/src/api/api/EdgeTest.java" charset="windows-1255" />
-    <file url="file://$PROJECT_DIR$/src/api/api/NodeTest.java" charset="windows-1255" />
+    <file url="file://$PROJECT_DIR$/src/api/DWGTest.java" charset="windows-1255" />
+    <file url="file://$PROJECT_DIR$/src/api/DWGTest.java" charset="windows-1255" />
+    <file url="file://$PROJECT_DIR$/src/api/EdgeTest.java" charset="windows-1255" />
+    <file url="file://$PROJECT_DIR$/src/api/EdgeTest.java" charset="windows-1255" />
+    <file url="file://$PROJECT_DIR$/src/api/NodeTest.java" charset="windows-1255" />
+    <file url="file://$PROJECT_DIR$/src/api/NodeTest.java" charset="windows-1255" />
   </component>
 </project>

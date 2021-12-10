@@ -1,10 +1,11 @@
+import api.*;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import api.api.*;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -17,8 +18,11 @@ public class Ex2 {
 
     public static void main(String[] args) throws FileNotFoundException {
 
+        Graphics2D g = null;
+
         DirectedWeightedGraph graph = getGrapg("G2.json");
         Grid grid = new Grid((DWG) graph);
+        grid.paintComponents(g);
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(new Grid((DWG) graph));
@@ -27,6 +31,8 @@ public class Ex2 {
         frame.setVisible(true);
         Gui gui = new Gui();
         gui.build();
+        grid.rotate(g);
+
 
 
         }

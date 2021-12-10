@@ -1,0 +1,92 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+interface GUI {
+~build()
+}
+interface NodeData {
+    ~Constructor()
+    -int getKey()
+    -GeoLocation getLocation()
+    -void setLocation()
+    -double getWeight()
+    -void setWeight(double w)
+    -String getInfo()
+    -void setInfo(String s)
+    -int getTag()
+    -void setTag(int t)
+}
+interface EdgeData {
+    ~Constructor()
+    -int getSrc()
+    -int getDest()
+    -double getWeight()
+    -String getInfo()
+    -void setInfo(String s)
+    -int getTag()
+    -void setTag(int t)
+
+}
+interface DirectedWeightedGraph {}
+interface DirectedWeightedGraphAlgorithms {}
+interface GeoLocation {}
+
+enum Json {
+    nodes
+    edges
+}
+
+
+
+class DWG {}
+class Edge {}
+class Node {}
+class Grid {}
+class LaunchPage {}
+class Location {}
+class popUpWindow {}
+class AddEdge_PopUp {}
+class AddNode_PopUp {}
+
+note "Implements" as N1
+note "Implements" as N2
+note "Implements" as N3
+note "Implements" as N4
+note "Implements" as N5
+
+DWG .. N1
+Edge .. N2
+Node .. N3
+Location .. N4
+DirectedWeightedGraphAlgo .. N5
+
+N1 .. DirectedWeightedGraph
+N2 .. EdgeData
+N3 .. NodeData
+N4 .. GeoLocation
+N5 .. DirectedWeightedGraphAlgorithms
+
+Json --> DWG
+note on link #red: Json file
+Node --> DWG
+Edge --> DWG
+Location --> DWG
+
+
+DWG --> DirectedWeightedGraphAlgo
+EdgeData --> Grid
+NodeData --> Grid
+DWG --> Grid
+
+Grid --> GUI
+AddEdge_PopUp --> GUI
+AddNode_PopUp --> GUI
+popUpWindow --> GUI
+DirectedWeightedGraphAlgo --> GUI
+LaunchPage --> GUI
+
+
+
+
+@enduml
