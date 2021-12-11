@@ -43,6 +43,13 @@ Within this Section, a Plan for the different Classes, And how they interact, is
  
  -**Preformance** - Make sure the runtime does not exceed the rational Expectation for the program (e.g Hours, Days, Not responding ETC...)
 
+- **Gui** - Make sure Gui does not crush during run time if given bad input. make sure Gui is running Properly.
+
+-**Unit Testing** - In general, we use (Junit)[https://en.wikipedia.org/wiki/JUnit] to Test the Units of code that we write inside the Project.
+
+-**Algorithms** - Make sure Algorithms run properly, review the code and also be certified that the [Time Complexity](https://en.wikipedia.org/wiki/Time_complexity) is Optimal.
+
+-**Integration** - Make sure the multiple Classes with the Project work together properly, using by-hand testing, assuring that the program is running properly with its various edge cases.
 
 ## Preformance 
 
