@@ -1,7 +1,7 @@
 # **OOP 2021 - Ex2** 
 
 ## About
- A Third out of 6 Projects within the OOP Course Syllabus.
+ A Third out of 6 Projects within the OOP Course Syllabus in Ariel University, Computer Science Department.
  On this Project, We are dealing with Graphs. Directed Graphs with Weighed Edges to be precised.
  The Program will preform a variety of different Operations which is exapanded in the following:
  We Wrote a Program with the following features:
