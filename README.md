@@ -22,6 +22,10 @@
 
 ## Program Classes and Interfaces 
 
+#### :red_circle: Mention worthy:
+
+##### the DWG (Directed Weight Graph) class holds two [Hash maps](https://en.wikipedia.org/wiki/Hash_table): One Hashmap (named nodes) is mapping indecies to Nodes. the Second  Hashmap (named AdjList) is mapping between a group of nodes to a group of multiple [Arraylist](https://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html) instances, each is holding the Edges of the node accordingly.
+
 Within this Section, a Plan for the different Classes, And how they interact, is described using a UML Diagram:
 
 ![UML](https://user-images.githubusercontent.com/92685838/145684649-a00666f6-cbca-47cd-8ee4-ff39f818f7b7.png)
