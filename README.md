@@ -31,25 +31,27 @@ Within this Section, a Plan for the different Classes, And how they interact, is
 ![UML](https://user-images.githubusercontent.com/92685838/145684649-a00666f6-cbca-47cd-8ee4-ff39f818f7b7.png)
 
 ## Tests
-
- -**Valid input** Make sure the a vaild input hsa been inserted through the Json file - Handle with Exception 
  
- -**Null inputs** Make Sure Json file is not empty. if so, Handle with [NullPointerException](https://www.geeksforgeeks.org/null-pointer-exception-in-java/)
+ In this section, We elaborate on the different tests that will assure the program will run properly and will handle possible hurdles.
  
- -**Iterators** - Make Sure Nodes added to the graph are only done while *NO ITERATOR IS RUNNING* if so, Throw an Exception.
+ - **Valid input** Make sure the a vaild input hsa been inserted through the Json file - Handle with Exception 
  
- -**Infinite loops** - due to multiple long running Loops inside the program that aren't dependent on fixed Values, Avoid infinite Loops by the usage of throwing 
+ - **Null inputs** Make Sure Json file is not empty. if so, Handle with [NullPointerException](https://www.geeksforgeeks.org/null-pointer-exception-in-java/)
+ 
+ - **Iterators** - Make Sure Nodes added to the graph are only done while *NO ITERATOR IS RUNNING* if so, Throw an Exception.
+ 
+ - **Infinite loops** - due to multiple long running Loops inside the program that aren't dependent on fixed Values, Avoid infinite Loops by the usage of throwing 
  [StackOverFlow](https://www.geeksforgeeks.org/stackoverflowerror-in-java-with-examples/) Exception.
  
- -**Preformance** - Make sure the runtime does not exceed the rational Expectation for the program (e.g Hours, Days, Not responding ETC...)
+ - **Preformance** - Make sure the runtime does not exceed the rational Expectation for the program (e.g Hours, Days, Not responding ETC...)
 
 - **Gui** - Make sure Gui does not crush during run time if given bad input. make sure Gui is running Properly.
 
--**Unit Testing** - In general, we use (Junit)[https://en.wikipedia.org/wiki/JUnit] to Test the Units of code that we write inside the Project.
+- **Unit Testing** - In general, we use (Junit)[https://en.wikipedia.org/wiki/JUnit] to Test the Units of code that we write inside the Project.
 
--**Algorithms** - Make sure Algorithms run properly, review the code and also be certified that the [Time Complexity](https://en.wikipedia.org/wiki/Time_complexity) is Optimal.
+- **Algorithms** - Make sure Algorithms run properly, review the code and also be certified that the [Time Complexity](https://en.wikipedia.org/wiki/Time_complexity) is Optimal.
 
--**Integration** - Make sure the multiple Classes with the Project work together properly, using by-hand testing, assuring that the program is running properly with its various edge cases.
+- **Integration** - Make sure the multiple Classes with the Project work together properly, using by-hand testing, assuring that the program is running properly with its various edge cases.
 
 ## Preformance 
 
