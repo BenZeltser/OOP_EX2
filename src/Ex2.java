@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class Ex2 {
 
     public static void main(String[] args) throws FileNotFoundException {
-
+        long startTime = System.currentTimeMillis();
         Graphics2D g = null;
 
         DirectedWeightedGraph graph = getGrapg("G2.json");
@@ -31,11 +31,12 @@ public class Ex2 {
         frame.setVisible(true);
         Gui gui = new Gui();
         gui.build();
-        grid.rotate(g);
+        long endTime = System.currentTimeMillis();
+        System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
 
 
 
-        }
+    }
     /**
      * This static function will be used to test your implementation
      * @param json_file - a json file (e.g., G1.json - G3.gson)
@@ -70,11 +71,11 @@ public class Ex2 {
             NodeData temp = new Node(ID);
             GeoLocation p = new Location(x, y, z);
             temp.setLocation(p);
-            System.out.println("ID: " + temp.getKey());
-            System.out.println("X: " + x);
-            System.out.println("Y: " + y);
-            System.out.println("Z: " + z);
-            System.out.println("\n");
+//            System.out.println("ID: " + temp.getKey());
+//            System.out.println("X: " + x);
+//            System.out.println("Y: " + y);
+//            System.out.println("Z: " + z);
+//            System.out.println("\n");
             nodes.add(temp);
         }
         //Iterate through Json Edges

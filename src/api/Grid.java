@@ -18,7 +18,6 @@ public class Grid extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
-        System.out.println("Hey");
         super.paintComponent(g);
         g1 = (Graphics2D) g;
         g1.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -40,10 +39,6 @@ public class Grid extends JPanel {
                 String Coordinates = (XCoordinate+" "+YCoordinate);
                 g1.drawString(Coordinates,(float) X, (float) Y);
 
-            System.out.println("small x:"+x);
-            System.out.println("small y:"+y);
-            System.out.println("Big x:"+X);
-            System.out.println("Big y:"+Y);
 
         }
         //Draw edges
@@ -73,21 +68,16 @@ public class Grid extends JPanel {
 
                     Line2D l = new Line2D.Double(X1,Y1,X2,Y2);
                      g1.draw(l);
-                }
+                    }
 
                 }
+
             catch(java.lang.Exception exception1) {
                 continue;
             }
-            }
+        }
     }
 
-    public void rotate(Graphics g) {
-        super.paintComponent(g);
-        g1 = (Graphics2D) g;
-        g1.setPaint(Color.green);
-        g1.rotate(180);
-    }
 
     public static void main (String args[]){}
 

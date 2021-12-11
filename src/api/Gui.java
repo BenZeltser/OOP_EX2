@@ -72,7 +72,7 @@ public class Gui {
         ShortestPathButton.setBackground(Color.green);
         ShortestPathButton.setText("(ADD)Shortest Path");
         ShortestPathButton.setFont(new Font("Comic Sans", Font.BOLD, 15));
-        ShortestPathButton.addActionListener(e -> new PopUpWindow("Shortest Path is: "));
+        ShortestPathButton.addActionListener(e -> new PopUpWindow("Shortest Path is:              Distance: "));
 
         JButton tspButton = new JButton();
         tspButton.setBounds(0, 500, 350, 25);

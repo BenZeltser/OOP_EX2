@@ -17,7 +17,7 @@ public class AddEdge_PopUp extends JFrame implements ActionListener {
         this.setLayout(new FlowLayout());
         this.setTitle("Add Edge");
 
-        button =  new JButton("Add");
+        button =  new JButton("Insert src,dest,weight");
         button.addActionListener(this);
         button.setBackground(Color.GREEN);
 
@@ -36,15 +36,19 @@ public class AddEdge_PopUp extends JFrame implements ActionListener {
         if (e.getSource()==button) {
             String ans = textField.getText();
             String[] Coordinates = ans.split(",");
-            String xstr = Coordinates[0];
-            String ystr = Coordinates[1];
-            double x = Double.parseDouble(xstr);
-            double y = Double.parseDouble(ystr);
+            String src = Coordinates[0];
+            String dest = Coordinates[1];
+            String weight = Coordinates[2];
+            int x = Integer.parseInt(src);
+            int y = Integer.parseInt(dest);
+            double z = Double.parseDouble(weight);
 
-            NodeData node = new Node(DWG.nodes.size());
-            Location p = new Location(x,y,0);
+            EdgeData edge = new Edge(z);
+            ((Edge) edge).setSrc(x);
+            ((Edge) edge).setDest(y);
 
-            DWG.nodes.put(DWG.nodes.size(), node);
+            Node node = (Node) DWG.nodes.get(x);
+            DWG.adjList.get(node).add(edge);
             System.out.println("Added Edge ");
 
         }

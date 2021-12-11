@@ -18,7 +18,7 @@ public class AddNode_PopUp extends JFrame implements ActionListener {
         this.setLayout(new FlowLayout());
         this.setTitle("Add Node");
 
-        button =  new JButton("Add");
+        button =  new JButton("insert x,y");
         button.addActionListener(this);
         button.setBackground(Color.GREEN);
 
@@ -35,18 +35,18 @@ public class AddNode_PopUp extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==button) {
-                String ans = textField.getText();
-                String[] Coordinates = ans.split(",");
-                String xstr = Coordinates[0];
-                String ystr = Coordinates[1];
-                double x = Double.parseDouble(xstr);
-                double y = Double.parseDouble(ystr);
+                    String ans = textField.getText();
+                    String[] Coordinates = ans.split(",");
+                    String xstr = Coordinates[0];
+                    String ystr = Coordinates[1];
+                    double x = Double.parseDouble(xstr);
+                    double y = Double.parseDouble(ystr);
 
-                NodeData node = new Node(DWG.nodes.size());
-                Location p = new Location(x,y,0);
+                    NodeData node = new Node(DWG.nodes.size());
+                    Location p = new Location(x,y,0);
 
-                DWG.nodes.put(DWG.nodes.size(), node);
-                System.out.println("Added Node \nx:"+x+"\ny:"+y);
+                    DWG.nodes.put(DWG.nodes.size(), node);
+                    System.out.println("Added Node \nx:"+x+"\ny:"+y);
 
             }
         }
