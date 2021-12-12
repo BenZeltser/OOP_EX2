@@ -63,7 +63,7 @@ public class Ex2 {
 
             //add Nodes from Json to DWG
             int ID = Integer.parseInt(id);
-            String[] POS = pos.split(",");
+            String[] POS = pos.split(","); //x,y,z
             double x = Double.parseDouble(POS[0]);
             double y = Double.parseDouble(POS[1]);
             double z = Double.parseDouble(POS[2]);

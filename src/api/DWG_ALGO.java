@@ -176,8 +176,11 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
         DijkstrasShortestPathAdjacencyListWithDHeap algoGrapth=new DijkstrasShortestPathAdjacencyListWithDHeap(currentGraph.nodeSize());
         Iterator it= currentGraph.edgeIter();
         while(it.hasNext()) {
-            Edge edge= (Edge) it.next();
-            algoGrapth.addEdge(edge.getSrc(), edge.getDest(), edge.getWeight());
+            ArrayList<Edge> a = (ArrayList) it.next();
+            for (int i = 0; i < a.size(); i++) {
+                Edge edge = a.get(i);
+                algoGrapth.addEdge(edge.getSrc(), edge.getDest(), edge.getWeight());
+            }
         }
         return algoGrapth;
     }
