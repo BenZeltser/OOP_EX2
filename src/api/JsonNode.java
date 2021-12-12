@@ -1,12 +1,19 @@
 package api;
 
 public class JsonNode {
-    int key;
+    int id;
     GeoLocation loc;
+    String pos = "";
 
-    public JsonNode(int key,GeoLocation loc)
+    public JsonNode(int id,GeoLocation loc)
     {
-        this.key=key;
+        this.id=id;
         this.loc=loc;
+        pos+=String.valueOf(loc.x());
+        pos+=",";
+        pos+=String.valueOf(loc.y());
+        pos+=",";
+        pos+=String.valueOf(loc.z());
+
     }
 }

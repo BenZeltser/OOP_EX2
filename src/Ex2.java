@@ -7,8 +7,8 @@ import com.google.gson.JsonParser;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class Ex2 {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         long startTime = System.currentTimeMillis();
         Graphics2D g = null;
 
@@ -34,6 +34,8 @@ public class Ex2 {
         long endTime = System.currentTimeMillis();
         System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
 
+        DWG_ALGO a = new DWG_ALGO();
+        a.save("G5.Json");
 
 
     }
@@ -42,7 +44,7 @@ public class Ex2 {
      * @param json_file - a json file (e.g., G1.json - G3.gson)
      * @return
      */
-    public static DirectedWeightedGraph getGrapg(String json_file) throws FileNotFoundException {
+    public static DirectedWeightedGraph getGrapg(String json_file) throws IOException {
         DirectedWeightedGraph ans = null;
         //create list of nodes
         ArrayList<NodeData> nodes = new ArrayList<>();
@@ -95,6 +97,8 @@ public class Ex2 {
             temp.setDest(DEST);
             //add edges from Json to list
             edges.add((EdgeData) temp);
+
+
         }
         ans = new DWG(nodes,edges);
         return ans; }

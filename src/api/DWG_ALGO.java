@@ -1,9 +1,11 @@
 package api;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.HashMap;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
 
 import static java.lang.Double.MAX_VALUE;
 
@@ -96,13 +98,13 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
             for (int i = 0; i < currentGraph.nodeSize(); i++) {
                 double maxDis = -1; //Holds the longest path of the current node being inspected
                 NodeData tempCenter = currentGraph.getNode(i);
-                for (int j = 0; j < currentGraph.nodeSize(); j++) {
-                    double tempMaxDis = shortestPathDist(i, j);
-                    if (tempMaxDis == 0) {
-                        continue;
-                    }
-                    maxDis = Math.max(maxDis, tempMaxDis);
-                }
+//                for (int j = 0; j < currentGraph.nodeSize(); j++) {
+//                    double tempMaxDis = shortestPathDist(i, j);
+//                    if (tempMaxDis == 0) {
+//                        continue;
+//                    }
+//                    maxDis = Math.max(maxDis, tempMaxDis);
+//                }
                 if (minDis >= maxDis) {
                     center = tempCenter;
                 }
@@ -163,28 +165,27 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
     }
 
     @Override
-    public boolean save(String file) throws IOException {
-        Iterator<EdgeData>edgeIt= currentGraph.edgeIter();
-        Iterator<NodeData> nodeIt= currentGraph.nodeIter();
-        ArrayList<JsonNode> nodeList=new ArrayList<JsonNode>();
-        ArrayList<JsonEdge> edgeList=new ArrayList<JsonEdge>();
-        while (edgeIt.hasNext())
-        {
-            EdgeData ed= edgeIt.next();
-            JsonEdge adding=new JsonEdge(ed.getSrc(),ed.getDest(),ed.getWeight());
-            edgeList.add(adding);
+    public boolean save(String file) throws IOException, IOException {
+        Gson gson = new Gson();
+        ArrayList<JsonNode> nodeList = new ArrayList<>();
+        for (int i=0; i<DWG.nodes.size();i++){
+            Node node = (Node) DWG.nodes.get(i);
+            Location p = (Location) node.getLocation();
+            JsonNode jnode = new JsonNode(i,p);
+            nodeList.add(jnode);
+        }
+//        for (int i=0; i<DWG.adjList.size();i++){
+//            Edge edge =  DWG.adjList.get(i);
+//        gson = new GsonBuilder().setPrettyPrinting().create();
+//        String strJson = gson.toJson(nodeList);
 
+
+        try (FileWriter newfile = new FileWriter("G5.json")) {
+                newfile.write(strJson);
+            }
+        catch (IOException e) {
+            System.out.println("Error");
         }
-        while(nodeIt.hasNext())
-        {
-            NodeData node=nodeIt.next();
-            JsonNode adding=new JsonNode(node.getKey(), node.getLocation());
-            nodeList.add(adding);
-        }
-        JsonWriter writer=new JsonWriter(nodeList,edgeList);
-        Gson gson=new Gson();
-        String Json=gson.toJson(writer);
-        FileWriter fw=new FileWriter(Json);
 
 
         return false;
