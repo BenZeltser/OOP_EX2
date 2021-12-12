@@ -23,7 +23,7 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
 
     @Override
     public DirectedWeightedGraph copy() {
-        DirectedWeightedGraph newGraph=new DirectedWeightGraph();
+        DirectedWeightedGraph newGraph=new DWG();
         int key=0;
         for (int i=0; i<currentGraph.nodeSize();i++)
         {

@@ -13,7 +13,11 @@ public class DWG implements DirectedWeightedGraph {
 
     private Object RuntimeException;
 
-
+    public DWG()
+    {
+        HashMap<NodeData, ArrayList<EdgeData>> adjList = new HashMap<>();
+        HashMap<Integer, NodeData> nodes = new HashMap<>();
+    }
     public DWG(ArrayList<NodeData> nodes, ArrayList<EdgeData> edges) {
         for (int i = 0; i < nodes.size(); i++) {
             NodeData node = nodes.get(i);
