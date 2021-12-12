@@ -1,5 +1,11 @@
 package api;
 
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -163,7 +169,30 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
     }
 
     @Override
-    public boolean save(String file) {
+    public boolean save(String file) throws IOException {
+        Iterator<EdgeData>edgeIt= currentGraph.edgeIter();
+        Iterator<NodeData> nodeIt= currentGraph.nodeIter();
+        ArrayList<JsonNode> nodeList=new ArrayList<JsonNode>();
+        ArrayList<JsonEdge> edgeList=new ArrayList<JsonEdge>();
+        while (edgeIt.hasNext())
+        {
+            EdgeData ed= edgeIt.next();
+            JsonEdge adding=new JsonEdge(ed.getSrc(),ed.getDest(),ed.getWeight());
+            edgeList.add(adding);
+
+        }
+        while(nodeIt.hasNext())
+        {
+            NodeData node=nodeIt.next();
+            JsonNode adding=new JsonNode(node.getKey(), node.getLocation());
+            nodeList.add(adding);
+        }
+        JsonWriter writer=new JsonWriter(nodeList,edgeList);
+        Gson gson=new Gson();
+        String Json=gson.toJson(writer);
+        FileWriter fw=new FileWriter(Json);
+
+
         return false;
     }
 
@@ -176,7 +205,7 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
         DijkstrasShortestPathAdjacencyListWithDHeap algoGrapth=new DijkstrasShortestPathAdjacencyListWithDHeap(currentGraph.nodeSize());
         Iterator it= currentGraph.edgeIter();
         while(it.hasNext()) {
-            Edge edge= (Edge) it.next();
+            EdgeData edge= (EdgeData) it.next();
             algoGrapth.addEdge(edge.getSrc(), edge.getDest(), edge.getWeight());
         }
         return algoGrapth;
