@@ -174,10 +174,12 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
             JsonNode jnode = new JsonNode(i,p);
             nodeList.add(jnode);
         }
-//        for (int i=0; i<DWG.adjList.size();i++){
-//            Edge edge =  DWG.adjList.get(i);
-//        gson = new GsonBuilder().setPrettyPrinting().create();
-//        String strJson = gson.toJson(nodeList);
+
+        //Edges
+        //...
+
+        gson = new GsonBuilder().setPrettyPrinting().create();
+        String strJson = gson.toJson(nodeList);
 
 
         try (FileWriter newfile = new FileWriter("G5.json")) {

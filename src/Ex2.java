@@ -52,7 +52,7 @@ public class Ex2 {
         ArrayList<EdgeData> edges = new ArrayList<>();
 
         //Get and parse Json file
-        File input = new File("data/"+json_file);
+        File input = new File("data/"+json_file); //e.g G1.json
         JsonElement fileElement = JsonParser.parseReader(new FileReader(input));
         JsonObject fileObject = fileElement.getAsJsonObject();
 
