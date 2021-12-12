@@ -1,0 +1,175 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+interface GUI {
+~build()
+    }
+interface NodeData {
+    -int getKey()
+    -GeoLocation getLocation()
+    -void setLocation()
+    -double getWeight()
+    -void setWeight(double w)
+    -String getInfo()
+    -void setInfo(String s)
+    -int getTag()
+    -void setTag(int t)
+    }
+interface EdgeData {
+    -int getSrc()
+    -int getDest()
+    -double getWeight()
+    -String getInfo()
+    -void setInfo(String s)
+    -int getTag()
+    -void setTag(int t)
+    }
+interface DirectedWeightedGraph {
+    -NodeData getNode(int key)
+    -EdgeData getEdge(int src, int dest)
+    -void addNode(NodeData n)
+    -void connect(int src, int dest,double w)
+    -Iterator<NodeData> nodeIter()
+    -Iterator<EdgeData> edgeIter()
+    -Iterator<EdgeData> edgeIter(int node_id)
+    -NodeData removeNode(int key)
+    -removeEdge(int src, int dest)
+    -int nodeSize()
+    -int edgeSize()
+    -int getMC()
+    }
+interface DirectedWeightedGraphAlgorithms {
+    ~void init(DirectedWeightedGraph g)
+    -DirectedWeightedGraph getGraph()
+    -DirectedWeightedGraph copy()
+    -boolean isConnected()
+    -double shortestPathDist(int src, int dest)
+    -List<NodeData> shortestPath(int src, int dest)
+    -NodeData center()
+    -List<NodeData> tsp(List<NodeData> cities)
+    -public boolean save(String file)
+    -public boolean load(String file)
+
+    }
+interface GeoLocation {
+        -public double x()
+        -public double y()
+        -public double z()
+        -public double distance(GeoLocation g)
+    }
+
+enum Json {
+    nodes
+    edges
+}
+
+
+class DWG {
+    -int recalled=0;
+    -int recalled1=0;
+    -int MC=0;
+    -HashMap<NodeData, ArrayList<EdgeData>> adjList
+    -HashMap<Integer, NodeData> nodes
+    -private Object RuntimeException
+
+    ~Constructor()
+    -NodeData getNode(int key)
+    -EdgeData getEdge(int src, int dest)
+    -addNode(NodeData n)
+    -connect(int src, int dest, double w)
+    -Iterator<NodeData> nodeIter()
+    -Iterator<EdgeData> edgeIter()
+    -Iterator<EdgeData> edgeIter(int node_id)
+    -NodeData removeNode(int key)
+    -EdgeData removeEdge(int src, int dest)
+    -int nodeSize()
+    -int edgeSize()
+    -getMC()
+    }
+class Edge {
+        -int src
+        -int dest
+        -double weight
+        -String info
+        -int tag
+
+            ~Constructor()
+            -int getSrc()
+            -int getDest()
+            -double getWeight()
+            -String getInfo()
+            -void setInfo(String s)
+            -int getTag()
+            -void setTag(int t)
+    }
+class Node {
+        - int key
+        - GeoLocation location
+        - double weight
+        - String info
+        - int tag
+        - ArrayList<EdgeData>
+
+            ~Constructor()
+            -int getKey()
+            -GeoLocation getLocation()
+            -void setLocation()
+            -double getWeight()
+            -void setWeight(double w)
+            -String getInfo()
+            -void setInfo(String s)
+            -int getTag()
+            -void setTag(int t)
+    }
+class Grid {
+    Constructor()
+    paintComponent(Graphics g)
+    }
+class LaunchPage {}
+class Location {}
+class popUpWindow {}
+class AddEdge_PopUp {}
+class AddNode_PopUp {}
+
+note "Implements" as N1
+note "Implements" as N2
+note "Implements" as N3
+note "Implements" as N4
+note "Implements" as N5
+
+DWG .. N1
+Edge .. N2
+Node .. N3
+Location .. N4
+DirectedWeightedGraphAlgo .. N5
+
+N1 .. DirectedWeightedGraph
+N2 .. EdgeData
+N3 .. NodeData
+N4 .. GeoLocation
+N5 .. DirectedWeightedGraphAlgorithms
+
+Json --> DWG
+note on link #red: Json file
+Node --> DWG
+Edge --> DWG
+Location --> DWG
+
+
+DWG --> DirectedWeightedGraphAlgo
+EdgeData --> Grid
+NodeData --> Grid
+DWG --> Grid
+
+Grid --> GUI
+AddEdge_PopUp --> GUI
+AddNode_PopUp --> GUI
+popUpWindow --> GUI
+DirectedWeightedGraphAlgo --> GUI
+LaunchPage --> GUI
+
+
+
+
+@enduml
