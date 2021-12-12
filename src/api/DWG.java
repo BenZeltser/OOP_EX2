@@ -7,7 +7,6 @@ public class DWG implements DirectedWeightedGraph {
     int recalled, recalled1 = 0; //Used as testers to check if a function was called
     int MC = 0; // Mode Counter
 
-
     public static HashMap<NodeData, ArrayList<EdgeData>> adjList = new HashMap<>();
     public static HashMap<Integer, NodeData> nodes = new HashMap<>();
 
@@ -138,7 +137,7 @@ public class DWG implements DirectedWeightedGraph {
     public Iterator<EdgeData> edgeIter() {
         int temp = recalled1;
         Iterator iterate = adjList.values().iterator();
-        ArrayList<EdgeData> allEdges = new ArrayList<>();
+
 
         if (temp!=recalled1) {
             try {

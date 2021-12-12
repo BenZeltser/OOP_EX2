@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Grid extends JPanel {
     private Object Exception;
-    public static DWG graph;
+    public static DWG graph = new DWG();
     public static Graphics2D g1;
 
     public Grid(DWG graph) {

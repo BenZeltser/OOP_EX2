@@ -70,9 +70,9 @@ public class Gui {
         JButton ShortestPathButton = new JButton();
         ShortestPathButton.setBounds(0, 475, 350, 25);
         ShortestPathButton.setBackground(Color.green);
-        ShortestPathButton.setText("(ADD)Shortest Path");
+        ShortestPathButton.setText("Shortest Path");
         ShortestPathButton.setFont(new Font("Comic Sans", Font.BOLD, 15));
-        ShortestPathButton.addActionListener(e -> new PopUpWindow("Shortest Path is:              Distance: "));
+        ShortestPathButton.addActionListener(e -> new addShortestPath_PopUp());
 
         JButton tspButton = new JButton();
         tspButton.setBounds(0, 500, 350, 25);
@@ -84,7 +84,7 @@ public class Gui {
 
         JFrame frame = new JFrame();
         frame.setBackground(Color.BLACK);
-        frame.setTitle("OOP_2021 - Ex3");
+        frame.setTitle("OOP_2021 - Ex2");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
         frame.setSize(365, 565);

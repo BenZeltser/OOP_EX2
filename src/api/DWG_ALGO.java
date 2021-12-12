@@ -1,11 +1,5 @@
 package api;
 
-import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
-
-import java.io.FileWriter;
-import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -205,8 +199,11 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
         DijkstrasShortestPathAdjacencyListWithDHeap algoGrapth=new DijkstrasShortestPathAdjacencyListWithDHeap(currentGraph.nodeSize());
         Iterator it= currentGraph.edgeIter();
         while(it.hasNext()) {
-            EdgeData edge= (EdgeData) it.next();
-            algoGrapth.addEdge(edge.getSrc(), edge.getDest(), edge.getWeight());
+            ArrayList<Edge> a = (ArrayList) it.next();
+            for (int i = 0; i < a.size(); i++) {
+                Edge edge = a.get(i);
+                algoGrapth.addEdge(edge.getSrc(), edge.getDest(), edge.getWeight());
+            }
         }
         return algoGrapth;
     }
