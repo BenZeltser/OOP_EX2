@@ -47,7 +47,7 @@ Within this Section, a Plan for the different Classes, And how they interact, is
 
 - **Gui** - Make sure Gui does not crush during run time if given bad input. make sure Gui is running Properly.
 
-- **Unit Testing** - In general, we use (Junit)[https://en.wikipedia.org/wiki/JUnit] to Test the Units of code that we write inside the Project.
+- **Unit Testing** - In general, we use [Junit](https://en.wikipedia.org/wiki/JUnit) to Test the Units of code that we write inside the Project.
 
 - **Algorithms** - Make sure Algorithms run properly, review the code and also be certified that the [Time Complexity](https://en.wikipedia.org/wiki/Time_complexity) is Optimal.
 
