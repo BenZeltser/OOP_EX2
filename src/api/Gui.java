@@ -87,10 +87,9 @@ public class Gui {
         JButton isConnectedButton = new JButton();
         isConnectedButton.setBounds(0, 525, 350, 25);
         isConnectedButton.setBackground(Color.green);
-        isConnectedButton.setText("(ADD)is Connected");
+        isConnectedButton.setText("is Connected");
         isConnectedButton.setFont(new Font("Comic Sans", Font.BOLD, 15));
         DWG_ALGO algo = new DWG_ALGO();
-        algo.load("G1.json");
         algo.init(Grid.graph);
         isConnectedButton.addActionListener(e -> new addisConnected_PopUP());
 
@@ -100,16 +99,22 @@ public class Gui {
         loadButton.setText("Load");
         loadButton.setFont(new Font("Comic Sans", Font.BOLD, 15));
         DWG_ALGO algo1 = new DWG_ALGO();
-        algo1.load("G1.json");
         algo1.init(Grid.graph);
         loadButton.addActionListener(e -> new addLoad_PopUp());
+
+        JButton centerButton = new JButton();
+        centerButton.setBounds(0, 550, 350, 25);
+        centerButton.setBackground(Color.green);
+        centerButton.setText("Center");
+        centerButton.setFont(new Font("Comic Sans", Font.BOLD, 15));
+        centerButton.addActionListener(e -> new addCenter_PopUp());
 
         JFrame frame = new JFrame();
         frame.setBackground(Color.BLACK);
         frame.setTitle("OOP_2021 - Ex2");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
-        frame.setSize(365, 620);
+        frame.setSize(365, 650);
         frame.setVisible(true);
         frame.add(saveButton);
         frame.add(AddNodeButton);
@@ -118,7 +123,7 @@ public class Gui {
         frame.add(isConnectedButton);
         frame.add(tspButton);
         frame.add(iconLabel);
-        frame.add(loadButton);
+        frame.add(centerButton);
         frame.add(select_label);
         frame.add(txt);
         frame.revalidate();

@@ -61,7 +61,6 @@ public class addLoad_PopUp extends JFrame implements ActionListener {
             this.add(textField);
             this.pack();
             this.setVisible(true);
-
             new Load_PopUp();
         }
     }
