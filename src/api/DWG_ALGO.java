@@ -97,6 +97,10 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
 
         //runs the Dijksra algorithm and returns the shortest distance between "src" and "dest
         DijkstrasShortestPathAdjacencyListWithDHeap algoGraph=callingDijkstraAlgo();
+
+        //end the time calculation for the function and returns the time it took the function to finish
+        long endTime = System.currentTimeMillis();
+        System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
         return algoGraph.dijkstra(src,dest);
     }
 
