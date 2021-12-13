@@ -93,12 +93,22 @@ public class Gui {
         algo.init(Grid.graph);
         isConnectedButton.addActionListener(e -> new addisConnected_PopUP());
 
+        JButton loadButton = new JButton();
+        loadButton.setBounds(0, 550, 350, 25);
+        loadButton.setBackground(Color.green);
+        loadButton.setText("Load");
+        loadButton.setFont(new Font("Comic Sans", Font.BOLD, 15));
+        DWG_ALGO algo1 = new DWG_ALGO();
+        algo1.load("data/G1.json");
+        algo1.init(Grid.graph);
+        loadButton.addActionListener(e -> new addLoad_PopUp());
+
         JFrame frame = new JFrame();
         frame.setBackground(Color.BLACK);
         frame.setTitle("OOP_2021 - Ex2");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
-        frame.setSize(365, 590);
+        frame.setSize(365, 620);
         frame.setVisible(true);
         frame.add(saveButton);
         frame.add(AddNodeButton);
@@ -107,6 +117,7 @@ public class Gui {
         frame.add(isConnectedButton);
         frame.add(tspButton);
         frame.add(iconLabel);
+        frame.add(loadButton);
         frame.add(select_label);
         frame.add(txt);
         frame.revalidate();
