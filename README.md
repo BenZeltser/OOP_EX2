@@ -57,6 +57,23 @@ Within this Section, a Plan for the different Classes, And how they interact, is
 
 ## User Instructions
  
+as the Exectuable file is running, two Windows will open: 
+
+#### GUI Window - a Graphic User Interface with a menu bar that offers user interaction with the vraious functinalities 
+The GUI is very staright forward. every Button is self explanatory and the interaction is very intuitive. 
+
+with a press of a Button, a new Text field will be Poped up. which will contain a Button and an Insertion field. 
+
+The insertion field allows the user to insert Information that manipulates the output. 
+
+within every insertion field, The Button alludes plain instructions on the insertion Formatting.
+
+#### Grid Window - a (Scaled)[https://en.wikipedia.org/wiki/Scale_(ratio)] Plane that presents the Graph with it's Nodes, Edges and (x,y) Coordinates 
+
+The Scaled Graph will be appeard in coherence with the Given Graph.
+
+Download Link: 
+
 
 
 

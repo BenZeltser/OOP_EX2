@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.List;
 
 public class addShortestPath_PopUp extends JFrame implements ActionListener {
@@ -45,7 +46,11 @@ public class addShortestPath_PopUp extends JFrame implements ActionListener {
             int y = Integer.parseInt(dest);
 
             DWG_ALGO algo = new DWG_ALGO();
-            algo.load("data/G1.json");
+            try {
+                algo.load("data/G1.json");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
             algo.init(Grid.graph);
             double distance = algo.shortestPathDist(x,y);
             List<NodeData> path = algo.shortestPath(x,y);
