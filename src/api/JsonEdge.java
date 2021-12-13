@@ -5,7 +5,7 @@ public class JsonEdge {
     double weight;
     int dest;
 
-    public JsonEdge(int src, int dest, double weight){
+    public JsonEdge(int src, double weight, int dest){
         this.src=src;
         this.dest=dest;
         this.weight=weight;
