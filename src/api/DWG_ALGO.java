@@ -168,18 +168,32 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
     public boolean save(String file) throws IOException, IOException {
         Gson gson = new Gson();
         ArrayList<JsonNode> nodeList = new ArrayList<>();
+        ArrayList<JsonEdge> edgeList= new ArrayList<>();
         for (int i=0; i<DWG.nodes.size();i++){
             Node node = (Node) DWG.nodes.get(i);
             Location p = (Location) node.getLocation();
             JsonNode jnode = new JsonNode(i,p);
             nodeList.add(jnode);
         }
+        for (int i=0; i<DWG.adjList.size();i++)
+        {
+            NodeData node=DWG.nodes.get(i);
+            ArrayList<EdgeData> tempEdgeList=DWG.adjList.get(node);
+            for(int j=0; j<tempEdgeList.size();j++)
+            {
+                int source=tempEdgeList.get(j).getSrc(),dest=tempEdgeList.get(j).getDest();
+                double weight=tempEdgeList.get(j).getWeight();
+                JsonEdge jEdge=new JsonEdge(source,weight,dest);
+                edgeList.add(jEdge);
+            }
+        }
+        JsonWrite jsonWriter=new JsonWrite(edgeList,nodeList);
 
-        //Edges
-        //...
 
         gson = new GsonBuilder().setPrettyPrinting().create();
-        String strJson = gson.toJson(nodeList);
+        String strJson = gson.toJson(jsonWriter);
+
+
 
 
         try (FileWriter newfile = new FileWriter("G5.json")) {
