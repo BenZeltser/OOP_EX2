@@ -104,10 +104,12 @@ public class Ex2 {
      * @param json_file - a json file (e.g., G1.json - G3.gson)
      * @return
      */
-    public static DirectedWeightedGraphAlgorithms getGrapgAlgo(String json_file) {
+    public static DirectedWeightedGraphAlgorithms getGrapgAlgo(String json_file) throws IOException {
         DirectedWeightedGraphAlgorithms ans = null;
         // ****** Add your code here ******
-        //
+        ans = new DWG_ALGO();
+        ans.init(new DWG());
+        ans.load(json_file);
         // ********************************
         return ans;
     }
@@ -116,10 +118,22 @@ public class Ex2 {
      * @param json_file - a json file (e.g., G1.json - G3.gson)
      *
      */
-    public static void runGUI(String json_file) {
+    public static void runGUI(String json_file) throws IOException {
         DirectedWeightedGraphAlgorithms alg = getGrapgAlgo(json_file);
         // ****** Add your code here ******
-        //
+        Graphics2D g = null;
+
+        DirectedWeightedGraph graph = getGrapg("json_file");
+        Grid grid = new Grid((DWG) graph);
+        grid.paintComponents(g);
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(new Grid((DWG) graph));
+        frame.setSize(900, 700);
+        frame.setLocation(10, 10);
+        frame.setVisible(true);
+        Gui gui = new Gui();
+        gui.build();
         // ********************************
     }
 }
