@@ -53,8 +53,33 @@ Within this Section, a Plan for the different Classes, And how they interact, is
 
 - **Integration** - Make sure the multiple Classes with the Project work together properly, using by-hand testing, assuring that the program is running properly with its various edge cases.
 
-## Preformance 
+## Preformance
+# G1
+- **GUI** - It takes 38 millisecods to load the Graph in the GUI.
+- **Save**- It takes 43 millisecods to save a graph into a JSON file.
+- **isConnected** It takes 0 milliseconds to execute the algorithm.
+**shorestPathDist** It tkes 0 millisecond to execute the algorithm.
+- **shortestPath** It takes 2 milliseconds to execute the algorithm.
+- **center** It takes 0 milliseconds to execute the algorithm.
+- **tsp** It takes 3 milliseconds to execute the algorithm.
+ 
+# G2
 
+- **GUI** - It takes 38 millisecods to load the Graph in the GUI.
+- **Save**- It takes 37 millisecods to save a graph into a JSON file.
+- **isConnected** It takes 0 milliseconds to execute the algorithm.
+- **shorestPathDist** It tkes 0 millisecond to execute the algorithm.
+- **shortestPath** It takes 2 milliseconds to execute the algorithm.
+- **center** It takes 0 milliseconds to execute the algorithm.
+- **tsp** It takes 2 milliseconds to execute the algorithm.
+# G3
+- **GUI** - It takes 38 millisecods to load the Graph in the GUI.
+- **Save**- It takes 44 millisecods to save a graph into a JSON file.
+- **isConnected** It takes 0 milliseconds to execute the algorithm.
+- **shorestPathDist** It tkes 1 millisecond to execute the algorithm.
+- - **shortestPath** It takes 2 milliseconds to execute the algorithm.
+- **center** It takes 0 milliseconds to execute the algorithm.
+- **tsp** It takes 3 milliseconds to execute the algorithm.
 ## User Instructions
  
 as the Exectuable file is running, two Windows will open: 
