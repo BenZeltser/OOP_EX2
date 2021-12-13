@@ -57,8 +57,8 @@ Within this Section, a Plan for the different Classes, And how they interact, is
 # G1
 - **GUI** - It takes 38 millisecods to load the Graph in the GUI.
 - **Save**- It takes 43 millisecods to save a graph into a JSON file.
-- **isConnected** It takes 0 milliseconds to execute the algorithm.
-**shorestPathDist** It tkes 0 millisecond to execute the algorithm.
+- **isConnected** It takes 1 milliseconds to execute the algorithm.
+**shorestPathDist** It tkes 2 millisecond to execute the algorithm.
 - **shortestPath** It takes 2 milliseconds to execute the algorithm.
 - **center** It takes 1 milliseconds to execute the algorithm.
 - **tsp** It takes 3 milliseconds to execute the algorithm.
@@ -67,15 +67,15 @@ Within this Section, a Plan for the different Classes, And how they interact, is
 
 - **GUI** - It takes 38 millisecods to load the Graph in the GUI.
 - **Save**- It takes 37 millisecods to save a graph into a JSON file.
-- **isConnected** It takes 0 milliseconds to execute the algorithm.
-- **shorestPathDist** It tkes 0 millisecond to execute the algorithm.
+- **isConnected** It takes 2 milliseconds to execute the algorithm.
+- **shorestPathDist** It tkes 1 millisecond to execute the algorithm.
 - **shortestPath** It takes 2 milliseconds to execute the algorithm.
 - **center** It takes 2 milliseconds to execute the algorithm.
 - **tsp** It takes 2 milliseconds to execute the algorithm.
 # G3
 - **GUI** - It takes 40 millisecods to load the Graph in the GUI.
 - **Save**- It takes 44 millisecods to save a graph into a JSON file.
-- **isConnected** It takes 0 milliseconds to execute the algorithm.
+- **isConnected** It takes 1 milliseconds to execute the algorithm.
 - **shorestPathDist** It tkes 1 millisecond to execute the algorithm.
 - **shortestPath** It takes 2 milliseconds to execute the algorithm.
 - **center** It takes 1 milliseconds to execute the algorithm.
@@ -83,11 +83,14 @@ Within this Section, a Plan for the different Classes, And how they interact, is
 # 1000Nodes
 - **GUI** - It takes 39 millisecods to load the Graph in the GUI.
 - **Save**- It takes 152 millisecods to save a graph into a JSON file.
+- - **isConnected** It takes 2 milliseconds to execute the algorithm.
 - **shorestPathDist** It tkes 4 millisecond to execute the algorithm.
+- - **shortestPath** It takes 5 milliseconds to execute the algorithm.
 - **center** It takes 2 milliseconds to execute the algorithm.
 #10000Nodes
 - **GUI** - It takes 39 millisecods to load the Graph in the GUI.
 - **Save**- It takes 148 millisecods to save a graph into a JSON file.
+- **isConnected** It takes 2 milliseconds to execute the algorithm.
 - **shorestPathDist** It tkes 25 millisecond to execute the algorithm.
 - **shortestPath** It takes 23 milliseconds to execute the algorithm.
 - **center** It takes 2 milliseconds to execute the algorithm.
