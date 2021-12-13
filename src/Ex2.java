@@ -21,22 +21,24 @@ public class Ex2 {
         Graphics2D g = null;
 
         DirectedWeightedGraph graph = getGrapg("G2.json");
-        Grid grid = new Grid((DWG) graph);
-        grid.paintComponents(g);
-        JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.add(new Grid((DWG) graph));
-        frame.setSize(900, 700);
-        frame.setLocation(10, 10);
-        frame.setVisible(true);
-        Gui gui = new Gui();
-        gui.build();
-        long endTime = System.currentTimeMillis();
-        System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
+//        Grid grid = new Grid((DWG) graph);
+//        grid.paintComponents(g);
+//        JFrame frame = new JFrame();
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.add(new Grid((DWG) graph));
+//        frame.setSize(900, 700);
+//        frame.setLocation(10, 10);
+//        frame.setVisible(true);
+//        Gui gui = new Gui();
+//        gui.build();
+          long endTime = System.currentTimeMillis();
+          System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
 
         DWG_ALGO a = new DWG_ALGO();
         a.save("G5.Json");
-
+        System.out.println(a.isConnected());
+        NodeData node=a.center();
+        System.out.println(node.getKey());
 
     }
     /**
