@@ -34,16 +34,18 @@ public class Gui {
 
 
         JLabel txt = new JLabel();
+        txt.setSize(350,50);
+        txt.setLocation(0,0);
         txt.setText("Select Action");
-        txt.setSize(10, 10);
-        txt.setBounds(0, 350, 350, 25);
-
+        txt.setOpaque(true);
 
         JPanel select_label = new JPanel();
         select_label.setBackground(Color.ORANGE);
-        select_label.setBounds(0, 350, 350, 25);
+        select_label.setBounds(0, 350, 350, 50);
         select_label.add(txt);
-
+        select_label.setVisible(true);
+        select_label.setEnabled(true);
+        select_label.revalidate();
 
         JButton saveButton = new JButton();
         saveButton.setBounds(0, 400, 350, 25);
@@ -63,7 +65,7 @@ public class Gui {
         JButton AddEdgeButton = new JButton();
         AddEdgeButton.setBounds(0, 450, 350, 25);
         AddEdgeButton.setBackground(Color.green);
-        AddEdgeButton.setText("(ADD)Add Edge");
+        AddEdgeButton.setText("Add Edge");
         AddEdgeButton.setFont(new Font("Comic Sans", Font.BOLD, 15));
         AddEdgeButton.addActionListener(e -> new AddEdge_PopUp());
 
@@ -81,21 +83,32 @@ public class Gui {
         tspButton.setFont(new Font("Comic Sans", Font.BOLD, 15));
         tspButton.addActionListener(e -> out.println("tspButton"));
 
+        JButton isConnectedButton = new JButton();
+        isConnectedButton.setBounds(0, 525, 350, 25);
+        isConnectedButton.setBackground(Color.green);
+        isConnectedButton.setText("(ADD)is Connected");
+        isConnectedButton.setFont(new Font("Comic Sans", Font.BOLD, 15));
+        DWG_ALGO algo = new DWG_ALGO();
+        algo.load("data/G1.json");
+        algo.init(Grid.graph);
+        isConnectedButton.addActionListener(e -> new addisConnected_PopUP());
 
         JFrame frame = new JFrame();
         frame.setBackground(Color.BLACK);
         frame.setTitle("OOP_2021 - Ex2");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
-        frame.setSize(365, 565);
+        frame.setSize(365, 590);
         frame.setVisible(true);
         frame.add(saveButton);
         frame.add(AddNodeButton);
         frame.add(AddEdgeButton);
         frame.add(ShortestPathButton);
+        frame.add(isConnectedButton);
         frame.add(tspButton);
         frame.add(iconLabel);
         frame.add(select_label);
+        frame.add(txt);
         frame.revalidate();
     }
 
