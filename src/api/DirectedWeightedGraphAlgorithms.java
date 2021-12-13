@@ -90,5 +90,5 @@ public interface DirectedWeightedGraphAlgorithms {
      * @param file - file name of JSON file
      * @return true - iff the graph was successfully loaded.
      */
-    public boolean load(String file);
+    public boolean load(String file) throws IOException;
 }

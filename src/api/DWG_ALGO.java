@@ -1,8 +1,9 @@
 package api;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.*;
 
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
@@ -25,10 +26,16 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
 
     @Override
     public DirectedWeightedGraph copy() {
+        //start the time calculation for the function
+        long startTime=System.currentTimeMillis();
+
+        //creating an empty DirectedWeightGraph instance
         DirectedWeightedGraph newGraph=new DWG();
-        int key=0;
+
+        //a loop that iterates on each node in the graph and copies it to the new graph
         for (int i=0; i<currentGraph.nodeSize();i++)
         {
+            //copy all the data from the current node and creates a deep copy of it
             NodeData thisNode=  currentGraph.getNode(i);
             double weight=thisNode.getWeight();
             GeoLocation loc=thisNode.getLocation();
@@ -38,7 +45,8 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
             tempNode.setInfo(info);
             tempNode.setLocation(loc);
             tempNode.setTag(tag);
-            currentGraph.addNode(tempNode);
+            tempNode.setWeight(weight);
+            newGraph.addNode(tempNode);
 
         }
         Iterator<EdgeData> it= currentGraph.edgeIter();
@@ -47,86 +55,155 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
             EdgeData edge=it.next();
             int src=edge.getSrc(),dest=edge.getDest();
             double w=edge.getWeight();
-            currentGraph.connect(src,dest,w);
+            newGraph.connect(src,dest,w);
         }
+
+        //end the time calculation for the function and returns the time it took the function to finish
+        long endTime = System.currentTimeMillis();
+        System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
+
         return newGraph ;
     }
 
     @Override
     public boolean isConnected() {
+        //start the time calculation for the function
+        long startTime=System.currentTimeMillis();
+
+        //calculate if the number of edges is equal to the max number of possible edges
         int edgeSize= currentGraph.edgeSize(),nodeSize=currentGraph.nodeSize();
         int sum=nodeSize*(nodeSize-1);
         if (sum==edgeSize) {
+
+            //end the time calculation for the function and returns the time it took the function to finish
+            long endTime = System.currentTimeMillis();
+
+            System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
             return true;
         }
         else {
+
+            //end the time calculation for the function and returns the time it took the function to finish
+            long endTime = System.currentTimeMillis();
+
+            System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
             return false;
         }
     }
 
     @Override
     public double shortestPathDist(int src, int dest) {
+        //start the time calculation for the function
+        long startTime=System.currentTimeMillis();
+
+        //runs the Dijksra algorithm and returns the shortest distance between "src" and "dest
         DijkstrasShortestPathAdjacencyListWithDHeap algoGraph=callingDijkstraAlgo();
         return algoGraph.dijkstra(src,dest);
     }
 
     @Override
     public List<NodeData> shortestPath(int src, int dest) {
+        //start the time calculation for the function
+        long startTime=System.currentTimeMillis();
+
+        //runs the the Dijkstra algorithm and returns a list of integers of the shortest path
         DijkstrasShortestPathAdjacencyListWithDHeap algoGraph = callingDijkstraAlgo();
         List<Integer> tempIndexes = algoGraph.reconstructPath(src, dest);
-        List<NodeData> answer;
+        List<NodeData> answer=new ArrayList<>();
+
+        //checks if the list is empty, if not arrange the nodes in the indexes order
         if (tempIndexes.isEmpty()) {
+
+            //end the time calculation for the function and returns the time it took the function to finish
+            long endTime = System.currentTimeMillis();
+            System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
             return null;
         } else {
-            answer = new ArrayList<NodeData>();
             for (int i = 0; i < tempIndexes.toArray().length; i++) {
                 NodeData tempNode = currentGraph.getNode(tempIndexes.get(i));
                 answer.add(tempNode);
             }
 
         }
+
+        //end the time calculation for the function and returns the time it took the function to finish
+        long endTime = System.currentTimeMillis();
+        System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
         return answer;
     }
 
     @Override
     public NodeData center() {
-        NodeData center = null; //Hold the node that is the center of the graph
+        //start the time calculation for the function
+        long startTime=System.currentTimeMillis();
+
+        //Hold the node that is the center of the graph
+        NodeData center = null;
+
+        //checks to see if the graph is connected, if not returns null
         if (!isConnected()) {
             return null;
         } else {
-            Double minDis = MAX_VALUE; //Holds the maximum of the shorterst paths of the center
+
+            //this value holds the maximum of the shortest paths of the center
+            Double minDis = MAX_VALUE;
+
+            //a loop that is running and checking each node to see who is the center of the graph
             for (int i = 0; i < currentGraph.nodeSize(); i++) {
-                double maxDis = -1; //Holds the longest path of the current node being inspected
+
+                //this value holds the longest path of the current node being inspected
+                double maxDis = -1;
+
+                //this loop calculated the max distance of the shortest paths
                 NodeData tempCenter = currentGraph.getNode(i);
-//                for (int j = 0; j < currentGraph.nodeSize(); j++) {
-//                    double tempMaxDis = shortestPathDist(i, j);
-//                    if (tempMaxDis == 0) {
-//                        continue;
-//                    }
-//                    maxDis = Math.max(maxDis, tempMaxDis);
-//                }
-                if (minDis >= maxDis) {
+                for (int j = 0; j < currentGraph.nodeSize(); j++) {
+                    double tempMaxDis = shortestPathDist(i, j);
+                    if (tempMaxDis == 0) {
+                        continue;
+                    }
+                    maxDis = Math.max(maxDis, tempMaxDis);
+                }
+
+                //determine who should be the center node
+                if (minDis > maxDis) {
                     center = tempCenter;
                 }
             }
         }
+
+        //end the time calculation for the function and returns the time it took the function to finish
+        long endTime = System.currentTimeMillis();
+        System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
+
         return center;
     }
 
     @Override
     public List<NodeData> tsp(List<NodeData> cities) {
-        HashMap<Integer, NodeData>  nodes=new HashMap<>(); //create a hashmap that will hold the indexes and return the nodes
+        //start the time calculation for the function
+        long startTime=System.currentTimeMillis();
+
+        //create a hashmap that will hold the indexes and return the nodes
+        HashMap<Integer, NodeData>  nodes=new HashMap<>();
         int size=cities.size();
-        List<NodeData> ans = new ArrayList();//the list that will be sent to the user
-        double values[][]= new double[size][size];//a matrix with all the distances to sent into the algo
-        for(int i=0; i<values.length;i++)//set all the matrix value to double's max value
+
+        //the list that will be sent to the user
+        List<NodeData> ans = new ArrayList();
+
+        //a matrix with all the distances to sent into the algo
+        double values[][]= new double[size][size];
+
+        //set all the matrix value to double's max value
+        for(int i=0; i<values.length;i++)
         {
             for (int j=0;j<values.length;j++)
             {
                 values[i][j]=MAX_VALUE;
             }
         }
-        for(int i=0; i<size;i++)// this loop takes all the needed data from cities and puts it into the matrix
+
+        // this loop takes all the needed data from cities and puts it into the matrix
+        for(int i=0; i<size;i++)
         {
             nodes.put(i,cities.get(i));
             int tempSource=cities.get(i).getKey();
@@ -154,27 +231,43 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
                 }
             }
         }
+
+        //send the matrix to the TSP algo class and returns a list of the indexes in order
         TspDynamicProgrammingIterative algo=new TspDynamicProgrammingIterative(values);
         List<Integer>indexes=algo.getTour();
-        for(int i=0;i<indexes.size();i++)//arranges the node list in the correct order
+
+        //arranges the node list in the correct order and returns the list to the caller
+        for(int i=0;i<indexes.size();i++)
         {
             int tempIndex=indexes.get(i);
             ans.add(nodes.get(tempIndex));
         }
+
+        //end the time calculation for the function and returns the time it took the function to finish
+        long endTime = System.currentTimeMillis();
+        System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
+
         return ans;
     }
 
     @Override
     public boolean save(String file) throws IOException, IOException {
+        //start the time calculation for the function
+        long startTime=System.currentTimeMillis();
+
         Gson gson = new Gson();
         ArrayList<JsonNode> nodeList = new ArrayList<>();
         ArrayList<JsonEdge> edgeList= new ArrayList<>();
+
+        //loading all the nodes with the relevant information to one arraylist
         for (int i=0; i<DWG.nodes.size();i++){
             Node node = (Node) DWG.nodes.get(i);
             Location p = (Location) node.getLocation();
             JsonNode jnode = new JsonNode(i,p);
             nodeList.add(jnode);
         }
+
+        //load all the edges with the relevant information to one arraylist
         for (int i=0; i<DWG.adjList.size();i++)
         {
             NodeData node=DWG.nodes.get(i);
@@ -187,41 +280,135 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
                 edgeList.add(jEdge);
             }
         }
+
+        //creating a class that will hold both arrays in the correct order
         JsonWrite jsonWriter=new JsonWrite(edgeList,nodeList);
 
-
+        //creating the json file with the right indentation in the correct places
         gson = new GsonBuilder().setPrettyPrinting().create();
         String strJson = gson.toJson(jsonWriter);
 
 
 
-
+        //writing the json into a file
         try (FileWriter newfile = new FileWriter("G5.json")) {
                 newfile.write(strJson);
             }
         catch (IOException e) {
             System.out.println("Error");
+
+            //end the time calculation for the function and returns the time it took the function to finish
+            long endTime = System.currentTimeMillis();
+            System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
+
+            return false;
         }
 
+        //end the time calculation for the function and returns the time it took the function to finish
+        long endTime = System.currentTimeMillis();
+        System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
 
-        return false;
+        return true;
     }
 
     @Override
-    public boolean load(String file) {
-        return false;
-    }
+    public boolean load(String file) throws IOException {
+        //start the time calculation for the function
+        long startTime=System.currentTimeMillis();
 
+        //creating a DirectedWeightGraph instance
+        DirectedWeightedGraph DWG=DWG_ALGO.loadGraph(file);
+
+        //checking if the graph was created, if it was created, initializing it to the algo
+        if (DWG==null)
+        {
+
+            //end the time calculation for the function and returns the time it took the function to finish
+            long endTime = System.currentTimeMillis();
+            System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
+
+            return false;
+        }
+        else {
+
+            //end the time calculation for the function and returns the time it took the function to finish
+            long endTime = System.currentTimeMillis();
+            System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
+
+            init(DWG);
+            return true;
+        }
+    }
+    //this function creates an instance for the DijkstraAlgo and send it back finished to the caller
     private DijkstrasShortestPathAdjacencyListWithDHeap callingDijkstraAlgo() {
-        DijkstrasShortestPathAdjacencyListWithDHeap algoGrapth=new DijkstrasShortestPathAdjacencyListWithDHeap(currentGraph.nodeSize());
+        DijkstrasShortestPathAdjacencyListWithDHeap algoGraph=new DijkstrasShortestPathAdjacencyListWithDHeap(currentGraph.nodeSize());
         Iterator it= currentGraph.edgeIter();
         while(it.hasNext()) {
             ArrayList<Edge> a = (ArrayList) it.next();
             for (int i = 0; i < a.size(); i++) {
                 Edge edge = a.get(i);
-                algoGrapth.addEdge(edge.getSrc(), edge.getDest(), edge.getWeight());
+                algoGraph.addEdge(edge.getSrc(), edge.getDest(), edge.getWeight());
             }
         }
-        return algoGrapth;
+        return algoGraph;
     }
+    //this function creates a DirectedWeightGraph instance from a json file
+    private static DirectedWeightedGraph loadGraph(String json_file) throws IOException {
+        DirectedWeightedGraph ans = null;
+        //create list of nodes
+        ArrayList<NodeData> nodes = new ArrayList<>();
+        //create list of edges
+        ArrayList<EdgeData> edges = new ArrayList<>();
+
+        //Get and parse Json file
+        File input = new File("data/"+json_file); //e.g G1.json
+        JsonElement fileElement = JsonParser.parseReader(new FileReader(input));
+        JsonObject fileObject = fileElement.getAsJsonObject();
+
+        //Iterate through Json file of NODES
+        JsonArray nodesJ = fileObject.get("Nodes").getAsJsonArray();
+        for (JsonElement nodeElement : nodesJ) {
+            JsonObject nodeJsonObject = nodeElement.getAsJsonObject();
+            String pos = nodeJsonObject.get("pos").getAsString();
+            String id = nodeJsonObject.get("id").getAsString();
+
+            //add Nodes from Json to DWG
+            int ID = Integer.parseInt(id);
+            String[] POS = pos.split(","); //x,y,z
+            double x = Double.parseDouble(POS[0]);
+            double y = Double.parseDouble(POS[1]);
+            double z = Double.parseDouble(POS[2]);
+            //create node
+            NodeData temp = new Node(ID);
+            GeoLocation p = new Location(x, y, z);
+            temp.setLocation(p);
+//            System.out.println("ID: " + temp.getKey());
+//            System.out.println("X: " + x);
+//            System.out.println("Y: " + y);
+//            System.out.println("Z: " + z);
+//            System.out.println("\n");
+            nodes.add(temp);
+        }
+        //Iterate through Json Edges
+        JsonArray edgesJ = fileObject.get("Edges").getAsJsonArray();
+        for (JsonElement edgeElement : edgesJ) {
+            JsonObject edgeJsonObject = edgeElement.getAsJsonObject();
+            String src = edgeJsonObject.get("src").getAsString();
+            String w = edgeJsonObject.get("w").getAsString();
+            String dest = edgeJsonObject.get("dest").getAsString();
+
+            int SRC = Integer.parseInt(src);
+            double W = Double.parseDouble(w);
+            int DEST = Integer.parseInt(dest);
+
+            Edge temp = new Edge(W);
+            temp.setSrc(SRC);
+            temp.setDest(DEST);
+            //add edges from Json to list
+            edges.add((EdgeData) temp);
+
+
+        }
+        ans = new DWG(nodes,edges);
+        return ans; }
 }
