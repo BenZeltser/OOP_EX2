@@ -34,18 +34,18 @@ public class addisConnected_PopUP extends JFrame implements ActionListener {
         if (e.getSource()==button) {
 
             String input = textField.getText();
-            boolean connection = false;
+            boolean connection = true;
 
             DWG_ALGO algo = new DWG_ALGO();
             try {
-                algo.load("data/G1.json");
+                algo.load("G1.json");
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
             algo.init(Grid.graph);
-            connection = algo.isConnected();
+            connection = !(algo.isConnected());
 
-            String ans = (input+" Claim of Connection is"+connection);
+            String ans = (input+" Claim of Connection is "+connection);
             new isConnceted_Popup(ans);
         }
     }
