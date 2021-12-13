@@ -114,7 +114,7 @@ public class Gui {
         frame.setTitle("OOP_2021 - Ex2");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
-        frame.setSize(365, 650);
+        frame.setSize(365, 620);
         frame.setVisible(true);
         frame.add(saveButton);
         frame.add(AddNodeButton);
