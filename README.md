@@ -77,7 +77,7 @@ Within this Section, a Plan for the different Classes, And how they interact, is
 - **Save**- It takes 44 millisecods to save a graph into a JSON file.
 - **isConnected** It takes 0 milliseconds to execute the algorithm.
 - **shorestPathDist** It tkes 1 millisecond to execute the algorithm.
-- - **shortestPath** It takes 2 milliseconds to execute the algorithm.
+- **shortestPath** It takes 2 milliseconds to execute the algorithm.
 - **center** It takes 0 milliseconds to execute the algorithm.
 - **tsp** It takes 3 milliseconds to execute the algorithm.
 ## User Instructions
