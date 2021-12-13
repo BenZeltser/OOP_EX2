@@ -47,7 +47,7 @@ Within this Section, a Plan for the different Classes, And how they interact, is
 
 - **Gui** - Make sure Gui does not crush during run time if given bad input. make sure Gui is running Properly.
 
-- **Unit Testing** - In general, we use [Junit](https://en.wikipedia.org/wiki/JUnit) to Test the Units of code that we write inside the Project.
+- **Unit Testing** - In general, we use (Junit)[https://en.wikipedia.org/wiki/JUnit] to Test the Units of code that we write inside the Project.
 
 - **Algorithms** - Make sure Algorithms run properly, review the code and also be certified that the [Time Complexity](https://en.wikipedia.org/wiki/Time_complexity) is Optimal.
 
@@ -60,7 +60,7 @@ Within this Section, a Plan for the different Classes, And how they interact, is
 - **isConnected** It takes 0 milliseconds to execute the algorithm.
 **shorestPathDist** It tkes 0 millisecond to execute the algorithm.
 - **shortestPath** It takes 2 milliseconds to execute the algorithm.
-- **center** It takes 0 milliseconds to execute the algorithm.
+- **center** It takes 1 milliseconds to execute the algorithm.
 - **tsp** It takes 3 milliseconds to execute the algorithm.
  
 # G2
@@ -70,16 +70,33 @@ Within this Section, a Plan for the different Classes, And how they interact, is
 - **isConnected** It takes 0 milliseconds to execute the algorithm.
 - **shorestPathDist** It tkes 0 millisecond to execute the algorithm.
 - **shortestPath** It takes 2 milliseconds to execute the algorithm.
-- **center** It takes 0 milliseconds to execute the algorithm.
+- **center** It takes 2 milliseconds to execute the algorithm.
 - **tsp** It takes 2 milliseconds to execute the algorithm.
 # G3
-- **GUI** - It takes 38 millisecods to load the Graph in the GUI.
+- **GUI** - It takes 40 millisecods to load the Graph in the GUI.
 - **Save**- It takes 44 millisecods to save a graph into a JSON file.
 - **isConnected** It takes 0 milliseconds to execute the algorithm.
 - **shorestPathDist** It tkes 1 millisecond to execute the algorithm.
 - **shortestPath** It takes 2 milliseconds to execute the algorithm.
-- **center** It takes 0 milliseconds to execute the algorithm.
+- **center** It takes 1 milliseconds to execute the algorithm.
 - **tsp** It takes 3 milliseconds to execute the algorithm.
+# 1000Nodes
+- **GUI** - It takes 39 millisecods to load the Graph in the GUI.
+- **Save**- It takes 152 millisecods to save a graph into a JSON file.
+- **shorestPathDist** It tkes 4 millisecond to execute the algorithm.
+- **center** It takes 2 milliseconds to execute the algorithm.
+#10000Nodes
+- **GUI** - It takes 39 millisecods to load the Graph in the GUI.
+- **Save**- It takes 148 millisecods to save a graph into a JSON file.
+- - **shorestPathDist** It tkes 25 millisecond to execute the algorithm.
+- **shortestPath** It takes 23 milliseconds to execute the algorithm.
+- **center** It takes 2 milliseconds to execute the algorithm.
+#100000Nodes
+- **GUI** - It takes 41 millisecods to load the Graph in the GUI.
+- **Save**- It takes 140 millisecods to save a graph into a JSON file.
+- **center** It takes 1 milliseconds to execute the algorithm.
+
+
 ## User Instructions
  
 as the Exectuable file is running, two Windows will open: 
@@ -93,11 +110,11 @@ The insertion field allows the user to insert Information that manipulates the o
 
 within every insertion field, The Button alludes plain instructions on the insertion Formatting.
 
-#### Grid Window - a (Scaled) Plane that presents the Graph with it's Nodes, Edges and (x,y) Coordinates 
+#### Grid Window - a (Scaled)[https://en.wikipedia.org/wiki/Scale_(ratio)] Plane that presents the Graph with it's Nodes, Edges and (x,y) Coordinates 
 
 The Scaled Graph will be appeard in coherence with the Given Graph.
 
-Download Link: https://file.io/nAUs5yis9SB0
+Download Link: 
 
 
 
