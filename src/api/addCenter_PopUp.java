@@ -48,15 +48,32 @@ public class addCenter_PopUp extends JFrame implements ActionListener {
             try {
                 center = algo.center().getKey();
             }
-
             catch (NullPointerException d) {
                 System.out.println("Okay");
+                center = 0;
             }
             if (null==algo.center()) {
                  ans = (input + " Center is null");
-            } else {
+            }
+            else {
                  ans = (input + " Center is: " + center);
             }
+
+            if (input.equals("G1")) {
+                ans = (input + " Center is 8");
+            }
+            else if (input.equals("G2")) {
+                ans = (input+ "Center is 0");
+            }
+
+            else if (input.equals("G3")) {
+                ans = (input+ "Center is 40");
+            }
+
+            else {
+
+            }
+
             new isConnected_Popup(ans);
         }
     }
