@@ -9,8 +9,8 @@ import java.awt.event.ActionListener;
 public class ShortestPath_PopUp implements ActionListener {
     JFrame frame = new JFrame();
     JLabel distance = new JLabel();
-    public ShortestPath_PopUp(double input, String path) {
 
+    public ShortestPath_PopUp(double input, String path) {
         String ans = ("Shortest Path Distance is "+input + " || "+"Shortest Path is: "+path);
         distance.setBackground(Color.green);
         distance.setVisible(true);

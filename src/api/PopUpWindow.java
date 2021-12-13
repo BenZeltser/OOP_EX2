@@ -14,12 +14,12 @@ public class PopUpWindow {
         label.setText(ans);
         label.setBackground(Color.BLACK);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1000,110);
+        frame.setSize(300,110);
         frame.setLayout(null);
         frame.setVisible(true);
         label.setVisible(true);
         label.setLocation(0,0);
-        label.setSize(new Dimension(1000,110));
+        label.setSize(new Dimension(300,110));
         label.setFont(new Font("MV Boli", Font.BOLD,20));
         label.setForeground(Color.GREEN);
         label.setHorizontalAlignment(JLabel.LEFT);
