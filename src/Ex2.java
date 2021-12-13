@@ -4,12 +4,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This class is the main class for Ex2 - your implementation will be tested using this class.
@@ -20,34 +20,21 @@ public class Ex2 {
         long startTime = System.currentTimeMillis();
         Graphics2D g = null;
 
-        DirectedWeightedGraph graph = getGrapg("G1.json");
-//        Grid grid = new Grid((DWG) graph);
-//        grid.paintComponents(g);
-//        JFrame frame = new JFrame();
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.add(new Grid((DWG) graph));
-//        frame.setSize(900, 700);
-//        frame.setLocation(10, 10);
-//        frame.setVisible(true);
-//        Gui gui = new Gui();
-//        gui.build();
+        DirectedWeightedGraph graph = getGrapg("G2.json");
+        Grid grid = new Grid((DWG) graph);
+        grid.paintComponents(g);
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(new Grid((DWG) graph));
+        frame.setSize(900, 700);
+        frame.setLocation(10, 10);
+        frame.setVisible(true);
+        Gui gui = new Gui();
+        gui.build();
           long endTime = System.currentTimeMillis();
           System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
 
         DWG_ALGO a = new DWG_ALGO();
-        a.save("G5.Json");
-        a.init(graph);
-        List<NodeData> list=new ArrayList<NodeData>();
-        for(int i=0; i<10; i++)
-        {
-            NodeData node= graph.getNode(i);
-            list.add(node);
-        }
-        list=a.tsp(list);
-        System.out.println(list.toString());
-
-
-
     }
     /**
      * This static function will be used to test your implementation

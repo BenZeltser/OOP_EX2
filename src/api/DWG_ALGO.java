@@ -260,17 +260,18 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
 
         //loading all the nodes with the relevant information to one arraylist
         for (int i=0; i<DWG.nodes.size();i++){
-            Node node = (Node) DWG.nodes.get(i);
+            NodeData node = DWG.nodes.get(i);
             Location p = (Location) node.getLocation();
             JsonNode jnode = new JsonNode(i,p);
             nodeList.add(jnode);
         }
 
         //load all the edges with the relevant information to one arraylist
-        for (int i=0; i<DWG.adjList.size();i++)
+        int i=0;
+        NodeData node=currentGraph.getNode(i);
+        while(node!=null)
         {
-            NodeData node=DWG.nodes.get(i);
-            ArrayList<EdgeData> tempEdgeList=DWG.adjList.get(node);
+            ArrayList<EdgeData> tempEdgeList= DWG.adjList.get(node);
             for(int j=0; j<tempEdgeList.size();j++)
             {
                 int source=tempEdgeList.get(j).getSrc(),dest=tempEdgeList.get(j).getDest();
@@ -278,6 +279,8 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
                 JsonEdge jEdge=new JsonEdge(source,weight,dest);
                 edgeList.add(jEdge);
             }
+            i++;
+            node=currentGraph.getNode(i);
         }
 
         //creating a class that will hold both arrays in the correct order

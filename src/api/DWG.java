@@ -28,10 +28,10 @@ public class DWG implements DirectedWeightedGraph {
             for (int i = 0; i < edges.size(); i++) {
                 if (edges.get(i).getSrc() == nodes.get(k).getKey() || edges.get(i).getDest() == nodes.get(k).getKey()) {
                     neighborEdges.add(edges.get(i));
-                    edgeC++;
                 }
             }
             //Team up the edges with the node
+            edgeC++;
         this.adjList.put(nodes.get(k),neighborEdges);
         }
     }
