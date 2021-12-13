@@ -163,7 +163,8 @@ public class DWG implements DirectedWeightedGraph {
      */
     @Override
     public Iterator<EdgeData> edgeIter(int node_id) {
-        ArrayList<EdgeData> i = adjList.get(node_id);
+        NodeData node=nodes.get(node_id);
+        ArrayList<EdgeData> i = adjList.get(node);
         Iterator ans = i.iterator();
         return ans;
     }
