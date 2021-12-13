@@ -90,7 +90,7 @@ public class Gui {
         isConnectedButton.setText("(ADD)is Connected");
         isConnectedButton.setFont(new Font("Comic Sans", Font.BOLD, 15));
         DWG_ALGO algo = new DWG_ALGO();
-        algo.load("data/G1.json");
+        algo.load("G1.json");
         algo.init(Grid.graph);
         isConnectedButton.addActionListener(e -> new addisConnected_PopUP());
 
@@ -100,7 +100,7 @@ public class Gui {
         loadButton.setText("Load");
         loadButton.setFont(new Font("Comic Sans", Font.BOLD, 15));
         DWG_ALGO algo1 = new DWG_ALGO();
-        algo1.load("data/G1.json");
+        algo1.load("G1.json");
         algo1.init(Grid.graph);
         loadButton.addActionListener(e -> new addLoad_PopUp());
 
