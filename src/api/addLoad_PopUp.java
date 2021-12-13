@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 
 public class addLoad_PopUp extends JFrame implements ActionListener {
     JButton button;
@@ -38,8 +39,13 @@ public class addLoad_PopUp extends JFrame implements ActionListener {
 
             DWG_ALGO algo = new DWG_ALGO();
             boolean check = new File("data", "ans").exists();
-            if (check)
-                algo.load(ans);
+            if (check) {
+                try {
+                    algo.load(ans);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
                 algo.init(Grid.graph);
 
             String input = textField.getText();

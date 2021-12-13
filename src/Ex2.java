@@ -4,7 +4,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.FileReader;
@@ -34,11 +33,11 @@ public class Ex2 {
           long endTime = System.currentTimeMillis();
           System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
 
-        DWG_ALGO a = new DWG_ALGO();
-        a.save("G5.Json");
-        System.out.println(a.isConnected());
-        NodeData node=a.center();
-        System.out.println(node.getKey());
+//        DWG_ALGO a = new DWG_ALGO();
+//        a.save("G5.Json");
+//        //System.out.println(a.isConnected());
+//        NodeData node=a.center();
+//        System.out.println(node.getKey());
 
     }
     /**
