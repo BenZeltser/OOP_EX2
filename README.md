@@ -47,7 +47,7 @@ Within this Section, a Plan for the different Classes, And how they interact, is
 
 - **Gui** - Make sure Gui does not crush during run time if given bad input. make sure Gui is running Properly.
 
-- **Unit Testing** - In general, we use (Junit)[https://en.wikipedia.org/wiki/JUnit] to Test the Units of code that we write inside the Project.
+- **Unit Testing** - In general, we use [Junit](https://en.wikipedia.org/wiki/JUnit) to Test the Units of code that we write inside the Project.
 
 - **Algorithms** - Make sure Algorithms run properly, review the code and also be certified that the [Time Complexity](https://en.wikipedia.org/wiki/Time_complexity) is Optimal.
 
@@ -110,11 +110,11 @@ The insertion field allows the user to insert Information that manipulates the o
 
 within every insertion field, The Button alludes plain instructions on the insertion Formatting.
 
-#### Grid Window - a (Scaled)[https://en.wikipedia.org/wiki/Scale_(ratio)] Plane that presents the Graph with it's Nodes, Edges and (x,y) Coordinates 
+#### Grid Window - a [Scaled]([https://en.wikipedia.org/wiki/Scale_(ratio) Plane that presents the Graph with it's Nodes, Edges and (x,y) Coordinates 
 
 The Scaled Graph will be appeard in coherence with the Given Graph.
 
-Download Link: 
+Download Link: https://file.io/nAUs5yis9SB0
 
 
 
