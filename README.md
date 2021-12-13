@@ -88,7 +88,7 @@ Within this Section, a Plan for the different Classes, And how they interact, is
 #10000Nodes
 - **GUI** - It takes 39 millisecods to load the Graph in the GUI.
 - **Save**- It takes 148 millisecods to save a graph into a JSON file.
-- - **shorestPathDist** It tkes 25 millisecond to execute the algorithm.
+- **shorestPathDist** It tkes 25 millisecond to execute the algorithm.
 - **shortestPath** It takes 23 milliseconds to execute the algorithm.
 - **center** It takes 2 milliseconds to execute the algorithm.
 #100000Nodes
