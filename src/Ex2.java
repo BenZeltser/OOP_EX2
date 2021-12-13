@@ -4,12 +4,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class is the main class for Ex2 - your implementation will be tested using this class.
@@ -20,7 +20,7 @@ public class Ex2 {
         long startTime = System.currentTimeMillis();
         Graphics2D g = null;
 
-        DirectedWeightedGraph graph = getGrapg("G2.json");
+        DirectedWeightedGraph graph = getGrapg("G1.json");
 //        Grid grid = new Grid((DWG) graph);
 //        grid.paintComponents(g);
 //        JFrame frame = new JFrame();
@@ -36,9 +36,17 @@ public class Ex2 {
 
         DWG_ALGO a = new DWG_ALGO();
         a.save("G5.Json");
-        System.out.println(a.isConnected());
-        NodeData node=a.center();
-        System.out.println(node.getKey());
+        a.init(graph);
+        List<NodeData> list=new ArrayList<NodeData>();
+        for(int i=0; i<10; i++)
+        {
+            NodeData node= graph.getNode(i);
+            list.add(node);
+        }
+        list=a.tsp(list);
+        System.out.println(list.toString());
+
+
 
     }
     /**

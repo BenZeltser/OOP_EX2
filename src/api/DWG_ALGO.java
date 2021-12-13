@@ -85,7 +85,6 @@ public class DWG_ALGO implements DirectedWeightedGraphAlgorithms
 
             //end the time calculation for the function and returns the time it took the function to finish
             long endTime = System.currentTimeMillis();
-
             System.out.println("Finished in " + (endTime - startTime) + " milliseconds");
             return false;
         }

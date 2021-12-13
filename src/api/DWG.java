@@ -6,6 +6,7 @@ import java.util.Iterator;
 public class DWG implements DirectedWeightedGraph {
     int recalled, recalled1 = 0; //Used as testers to check if a function was called
     int MC = 0; // Mode Counter
+    int edgeC=0;//counting the amount of edges
 
     public static HashMap<NodeData, ArrayList<EdgeData>> adjList = new HashMap<>();
     public static HashMap<Integer, NodeData> nodes = new HashMap<>();
@@ -25,8 +26,10 @@ public class DWG implements DirectedWeightedGraph {
         for (int k = 0; k < nodes.size(); k++) {
             ArrayList<EdgeData> neighborEdges = new ArrayList<>();
             for (int i = 0; i < edges.size(); i++) {
-                if (edges.get(i).getSrc() == nodes.get(k).getKey() || edges.get(i).getDest() == nodes.get(k).getKey())
+                if (edges.get(i).getSrc() == nodes.get(k).getKey() || edges.get(i).getDest() == nodes.get(k).getKey()) {
                     neighborEdges.add(edges.get(i));
+                    edgeC++;
+                }
             }
             //Team up the edges with the node
         this.adjList.put(nodes.get(k),neighborEdges);
@@ -209,6 +212,7 @@ public class DWG implements DirectedWeightedGraph {
         i1.next();}
 
         MC++;
+        edgeC--;
         return temp;
     }
 
@@ -231,14 +235,8 @@ public class DWG implements DirectedWeightedGraph {
      */
     @Override
     public int edgeSize() {
-        int counter=0;
-
-        for (int i=0;i<adjList.size();i++){
-            for (int j=0;j<adjList.get(i).size();j++){
-                counter++;
-            }
+        return edgeC;
         }
-    return counter;}
 
     /**
      * Returns the Mode Count - for testing changes in the graph.

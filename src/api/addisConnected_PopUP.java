@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class addisConnected_PopUP extends JFrame implements ActionListener {
     JButton button;
@@ -36,7 +37,11 @@ public class addisConnected_PopUP extends JFrame implements ActionListener {
             boolean connection = false;
 
             DWG_ALGO algo = new DWG_ALGO();
-            algo.load("data/G1.json");
+            try {
+                algo.load("data/G1.json");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
             algo.init(Grid.graph);
             connection = algo.isConnected();
 

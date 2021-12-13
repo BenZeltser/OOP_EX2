@@ -4,6 +4,7 @@ package api;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.io.IOException;
 
 import static java.lang.System.out;
 
@@ -12,7 +13,7 @@ public class Gui {
 
     }
 
-    public static void build() {
+    public static void build() throws IOException {
 
         ImageIcon image = new ImageIcon("src/api/Algorithms.png");
 
