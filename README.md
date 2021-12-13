@@ -93,7 +93,7 @@ The insertion field allows the user to insert Information that manipulates the o
 
 within every insertion field, The Button alludes plain instructions on the insertion Formatting.
 
-#### Grid Window - a (Scaled) [https://en.wikipedia.org/wiki/Scale_(ratio)] Plane that presents the Graph with it's Nodes, Edges and (x,y) Coordinates 
+#### Grid Window - a (Scaled) Plane that presents the Graph with it's Nodes, Edges and (x,y) Coordinates 
 
 The Scaled Graph will be appeard in coherence with the Given Graph.
 
